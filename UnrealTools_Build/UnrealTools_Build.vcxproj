@@ -127,7 +127,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="tools\build.cpp" />
+    <ClCompile Include="tools\package.cpp" />
+    <ClCompile Include="tools\showinfos.cpp" />
     <ClCompile Include="UnrealTools_Build.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="tools\build.h" />
+    <ClInclude Include="tools\package.h" />
+    <ClInclude Include="tools\showinfos.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
