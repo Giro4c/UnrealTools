@@ -11,8 +11,10 @@ namespace UnrealTools
         std::vector<std::string> plugins;
     };
 
-    int parseUProject(const std::string projectPath, project_info& infos);
+    int parseUProject(const std::string& projectPath, project_info& infos);
+
+    void displayUProject(const project_info& infos);
     
-    int showInfos(std::string projectPath);
+    int showInfos(const std::string& projectPath);
     
 }
