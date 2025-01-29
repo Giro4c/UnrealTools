@@ -127,15 +127,33 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="lib_json\json_reader.cpp" />
+    <ClCompile Include="lib_json\json_value.cpp" />
+    <ClCompile Include="lib_json\json_writer.cpp" />
     <ClCompile Include="tools\build.cpp" />
     <ClCompile Include="tools\package.cpp" />
     <ClCompile Include="tools\showinfos.cpp" />
     <ClCompile Include="UnrealTools_Build.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="json\allocator.h" />
+    <ClInclude Include="json\assertions.h" />
+    <ClInclude Include="json\config.h" />
+    <ClInclude Include="json\forwards.h" />
+    <ClInclude Include="json\json.h" />
+    <ClInclude Include="json\json_features.h" />
+    <ClInclude Include="json\reader.h" />
+    <ClInclude Include="json\value.h" />
+    <ClInclude Include="json\version.h" />
+    <ClInclude Include="json\writer.h" />
+    <ClInclude Include="lib_json\json_tool.h" />
+    <ClInclude Include="lib_json\json_valueiterator.inl" />
     <ClInclude Include="tools\build.h" />
     <ClInclude Include="tools\package.h" />
     <ClInclude Include="tools\showinfos.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="lib_json\CMakeLists.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
