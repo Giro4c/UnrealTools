@@ -21,3 +21,20 @@ std::string UnrealTools::Cmd::Execute(const char* cmd)
     return result;
 }
 
+std::string UnrealTools::Cmd::MakeCmdBuild(std::string projectPath, std::string projectName, std::string target,
+    std::string platform, std::string optimization)
+{
+    std::string cmd = "./Engine/Build/BatchFiles/Build.bat ";
+    cmd += projectName;
+    cmd += " ";
+    cmd += projectName + target;
+    cmd += " ";
+    cmd += platform;
+    cmd += " ";
+    cmd += optimization;
+    cmd += " ";
+    cmd += projectPath;
+    cmd += " -waimutex";
+
+    return cmd;
+}
