@@ -2,7 +2,6 @@
 
 #include <fstream>
 #include <iostream>
-#include <json/json.h>
 
 int UnrealTools::parseUProject(const std::string projectPath, project_info& infos)
 {
