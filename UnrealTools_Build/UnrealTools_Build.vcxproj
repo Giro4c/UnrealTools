@@ -131,6 +131,7 @@
     <ClCompile Include="lib_json\json_value.cpp" />
     <ClCompile Include="lib_json\json_writer.cpp" />
     <ClCompile Include="tools\build.cpp" />
+    <ClCompile Include="tools\cmd_executer.cpp" />
     <ClCompile Include="tools\package.cpp" />
     <ClCompile Include="tools\showinfos.cpp" />
     <ClCompile Include="UnrealTools_Build.cpp" />
@@ -149,6 +150,7 @@
     <ClInclude Include="lib_json\json_tool.h" />
     <ClInclude Include="lib_json\json_valueiterator.inl" />
     <ClInclude Include="tools\build.h" />
+    <ClInclude Include="tools\cmd_executer.h" />
     <ClInclude Include="tools\package.h" />
     <ClInclude Include="tools\showinfos.h" />
   </ItemGroup>
