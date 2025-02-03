@@ -2,10 +2,19 @@
 
 #include <fstream>
 #include <iostream>
+#include <regex>
 #include "../json/value.h"
 #include "../json/reader.h"
 #include "../json/writer.h"
 
+
+bool UnrealTools::isUUID(const std::string& str)
+{
+    const std::regex uuid_regex("[A-Za-z0-9]+-[A-Za-z0-9]+-[A-Za-z0-9]+-[A-Za-z0-9]+-[A-Za-z0-9]");
+
+    std::smatch uuid_match;
+    return std::regex_search(str, uuid_match, uuid_regex);
+}
 
 int UnrealTools::parseUProject(const std::string& projectPath, project_info& infos)
 {
@@ -36,6 +45,11 @@ int UnrealTools::parseUProject(const std::string& projectPath, project_info& inf
     // Engine Version
     // std::cout << project["EngineAssociation"] << "\n";
     infos.version = project["EngineAssociation"].asString();
+    if (isUUID(infos.version))
+    {
+        infos.fromSource = true;
+        // std::cout << "Project from source. \n";
+    }
 
     // Plugins
     // std::cout << "Number of Plugins : " << std::size(project["Plugins"]) << "\n";
@@ -52,7 +66,8 @@ int UnrealTools::parseUProject(const std::string& projectPath, project_info& inf
 void UnrealTools::displayUProject(const project_info& infos)
 {
     std::cout << "Project Name : " << infos.name << "\n";
-    std::cout << "Engine Version : " << infos.version << "\n";
+    std::cout << "Engine Version : " << infos.version;
+    std::cout << (infos.fromSource ? " -- FROM SOURCE \n" : "\n");
     std::cout << "Plugins : (" << std::size(infos.plugins) << ")\n";
     for (unsigned i = 0; i < std::size(infos.plugins); ++i)
     {
