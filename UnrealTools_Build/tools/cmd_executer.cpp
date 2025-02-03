@@ -38,3 +38,20 @@ std::string UnrealTools::Cmd::MakeCmdBuild(std::string projectPath, std::string 
 
     return cmd;
 }
+
+std::string UnrealTools::Cmd::MakeCmdPackage(std::string projectPath, std::string packagePath, std::string optimization, std::string platform)
+{
+    std::string cmd = "./Engine/Build/BatchFiles/RunUAT.bat BuildCookRun -project=";
+    cmd += projectPath;
+    cmd += " -noP4 -clientconfig=";
+    cmd += optimization;
+    cmd += " -serverconfig=";
+    cmd += optimization;
+    cmd += " -nocompileeditor -utf8output -platform=";
+    cmd += platform;
+    cmd += " -build -cook -CookCultures=fr -unversionedcookedcontent -stage -package -stagingdirectory=";
+    cmd += packagePath;
+    cmd += " -cmdline=\" -Messaging\"";
+
+    return cmd;
+}
